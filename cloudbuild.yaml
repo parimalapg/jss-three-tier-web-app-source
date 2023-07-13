@@ -41,6 +41,7 @@ steps:
   - '-c'
   - |
     cd make-it-mine-three-tier-web-app && \
+    git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)') && \
     git checkout cloudbuild-ci-cd-pipeline && \
     sed -i "s/COMMIT_SHA/${SHORT_SHA}/g" main.tf && \
     git add main.tf && \
