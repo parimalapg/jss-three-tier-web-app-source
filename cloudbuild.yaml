@@ -48,12 +48,7 @@ steps:
     git add main.tf && \
     git commit -m "Built from commit ${COMMIT_SHA} of repository three-tier-web-app source code
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
-    git status
-# This step pushes the commit
-- name: 'gcr.io/cloud-builders/git'
-  args:
-  - push
-  - origin cloudbuild-ci-cd-pipeline
+    git push origin cloudbuild-ci-cd-pipeline
   volumes:
   - name: 'ssh'
     path: /root/.ssh
