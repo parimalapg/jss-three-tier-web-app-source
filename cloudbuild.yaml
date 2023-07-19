@@ -44,7 +44,7 @@ steps:
     cd make-it-mine-three-tier-web-app && \
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)') && \
     git checkout cloudbuild-ci-cd-pipeline && \
-    sed -i "s/\(todo-api-postgres:\)\(.*\)/\1${SHORT_SHA}/" main.tf && \
+    sed -i "s/\(todo-api-postgres:\)\([^\"]*\)/\1${SHORT_SHA}/" main.tf && \
     git add main.tf && \
     git commit -m "Built from commit ${COMMIT_SHA} of repository three-tier-web-app source code
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
