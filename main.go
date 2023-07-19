@@ -168,7 +168,7 @@ func readHandler(w http.ResponseWriter, r *http.Request) {
 
 func createHandler(w http.ResponseWriter, r *http.Request) {
 	t := Todo{}
-	t.Title = r.FormValue("title")
+	t.Title = "NEW: " + r.FormValue("title")
 
 	if len(r.FormValue("complete")) > 0 && r.FormValue("complete") != "false" {
 		t.Complete = true
